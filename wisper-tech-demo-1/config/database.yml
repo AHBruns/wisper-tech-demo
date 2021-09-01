@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: wisper_tech_demo_development
+
+test:
+  <<: *default
+  database: wisper_tech_demo_test
+
+production:
+  <<: *default
+  database: wisper_tech_demo_production
+  username: wisper_tech_demo
+  password: <%= ENV['WISPER_TECH_DEMO_DATABASE_PASSWORD'] %>
